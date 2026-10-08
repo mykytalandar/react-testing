@@ -58,9 +58,7 @@ Example:
 ```typescript
 jest.mock('axios');
 
-const mockedAxios = jest.mocked(axios);
-
-mockedAxios.get.mockResolvedValue({
+jest.mocked(axios.get).mockResolvedValue({
   data: [
     {
       id: 1,
