@@ -1,24 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { Users } from './components/Users/Users';
 
 function App() {
+  const [value, setValue] = useState('');
+  // const [showUsers, setShowUsers] = useState(false);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='container-test'>
+        <h1>Hello, World!</h1>
+        <button data-testid='click-btn'>Click</button>
+        <input
+          type="text"
+          placeholder="Type here..."
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+        />
+        <h2 data-testid='value-elem' >{value}</h2>
+      </div>
+
+      {/* <button
+        data-testid='users-list-btn'
+        onClick={() => setShowUsers(!showUsers)}
+        className='show-users-button'
+      >
+        {showUsers ? 'Hide users' : 'Show users'}
+      </button> */}
+
+      <Users />
+
     </div>
   );
 }
